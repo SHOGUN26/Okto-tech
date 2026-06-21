@@ -30,11 +30,11 @@ header {
     line-height: 1;
 }
 
-.logo .logo-ok {
+.logo-ok {
     color: #8B0000;
 }
 
-.logo .logo-to {
+.logo-to {
     color: #FF4040;
 }
 
@@ -92,10 +92,6 @@ nav a:nth-child(n+2) {
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: 2px;
-}
-
-.hero h1 .okto {
-    color: #e8453c;
 }
 
 .hero h1.tech {
