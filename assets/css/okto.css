@@ -76,8 +76,6 @@ nav a:nth-child(n+2) {
 .hero {
     position: relative;
     height: 600px;
-    background: radial-gradient(circle at 20% 30%, #4a6fa5 0%, #1b2a44 35%, #0b1422 70%),
-        radial-gradient(circle at 80% 70%, #6b7a8a 0%, transparent 40%);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -85,6 +83,24 @@ nav a:nth-child(n+2) {
     justify-content: center;
     text-align: center;
     overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
 }
 
 .hero h1 {
@@ -127,4 +143,93 @@ nav a:nth-child(n+2) {
 .btn-start {
     background: #c0476b;
     color: #fff;
+}
+
+/* Section Nos services */
+.services-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    padding: 100px 60px;
+    flex-wrap: wrap;
+}
+
+.chart-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+#donut3d {
+    width: 300px;
+    height: 300px;
+}
+
+#donut3d canvas {
+    display: block;
+}
+
+.center-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 105px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+}
+
+.center-info #icon {
+    font-size: 21px;
+}
+
+.center-info h3 {
+    margin: 5px 0 3px;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.center-info span {
+    display: block;
+    font-weight: bold;
+    color: #FF4040;
+    font-size: 10px;
+}
+
+.center-info p {
+    margin-top: 5px;
+    font-size: 8px;
+    line-height: 1.2;
+    color: #555;
+}
+
+.services-content {
+    max-width: 500px;
+}
+
+.services-content h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.services-content p {
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+@media (max-width: 900px) {
+    .services-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .chart-container,
+    #donut3d {
+        width: 240px;
+        height: 240px;
+    }
 }

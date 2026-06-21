@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>OKTO Technologies</title>
     <link rel="stylesheet" href="assets/css/okto.css">
+    <link rel="shortcut icon" href="assets/icons/android-chrome-512x512.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
@@ -27,6 +29,9 @@
     </header>
 
     <section class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="assets/images/oktovideo.mp4" type="video/mp4">
+        </video>
         <h1>
             <span class="okto">
                 <span class="logo-ok">OK</span><span class="logo-to">TO</span>
@@ -40,6 +45,34 @@
         </div>
     </section>
 
+    <section class="services-section">
+        <div class="chart-container">
+
+            <div id="donut3d"></div>
+
+            <div class="center-info">
+                <div id="icon">🚀</div>
+                <h3 id="service-name">Nos Services</h3>
+                <span id="percentage">Survolez un segment</span>
+                <p id="description">Découvrez nos domaines d'expertise.</p>
+            </div>
+
+        </div>
+
+        <div class="services-content">
+            <h2><span class="logo-ok">NOS</span> <span class="logo-to">SERVICES</span></h2>
+
+            <p>
+                Nous accompagnons les entreprises dans leur transformation digitale
+                grâce à des solutions innovantes et adaptées à leurs besoins.
+            </p>
+
+            <button class="btn btn-start">Découvrir</button>
+        </div>
+    </section>
+
 </body>
+
+<script src="assets/js/okto.js"></script>
 
 </html>
