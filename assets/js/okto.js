@@ -1,10 +1,10 @@
 /* ===== Données des services ===== */
 const data = [
-    { name: "Développement Web",      percent: 40, icon: "🌐", color: 0xff4d4d, description: "Sites vitrines, e-commerce et applications web." },
-    { name: "Applications Mobile",    percent: 25, icon: "📱", color: 0x3366ff, description: "Applications Android et iOS performantes." },
-    { name: "Design Graphique",       percent: 15, icon: "🎨", color: 0x444444, description: "Création d'identités visuelles et interfaces." },
-    { name: "Marketing Digital",      percent: 10, icon: "📢", color: 0xff9900, description: "Campagnes publicitaires et visibilité." },
-    { name: "Community Management",   percent: 10, icon: "🤝", color: 0x00b894, description: "Gestion et animation des réseaux sociaux." }
+    { name: "Développement Web",    percent: 40, icon: "🌐", color: 0xff4d4d, description: "Création de sites web, e-commerce et applications web." },
+    { name: "Applications Mobile",  percent: 25, icon: "📱", color: 0x3366ff, description: "Android • iOS • React Native" },
+    { name: "Design Graphique",     percent: 15, icon: "🎨", color: 0x222222, description: "Logos • UI/UX • Branding" },
+    { name: "Marketing Digital",    percent: 10, icon: "📢", color: 0xffc107, description: "SEO • SEA • Réseaux sociaux" },
+    { name: "Community Management", percent: 10, icon: "🤝", color: 0x00b894, description: "Animation • Modération • Veille" }
 ];
 
 /* ===== Panneau central (overlay HTML) ===== */
@@ -14,10 +14,10 @@ const percent = document.getElementById('percentage');
 const desc = document.getElementById('description');
 
 function resetPanel() {
-    icon.textContent = '🚀';
-    name.textContent = 'Nos Services';
-    percent.textContent = 'Survolez un segment';
-    desc.textContent = "Découvrez nos domaines d'expertise.";
+    icon.textContent = '';
+    name.textContent = '5 Services';
+    percent.textContent = '';
+    desc.textContent = 'Transformons vos idées en solutions digitales';
 }
 
 function fillPanel(item) {
@@ -26,6 +26,8 @@ function fillPanel(item) {
     percent.textContent = item.percent + '%';
     desc.textContent = item.description;
 }
+
+resetPanel();
 
 /* ===== Scène Three.js ===== */
 const container = document.getElementById('donut3d');
@@ -40,13 +42,34 @@ camera.lookAt(0, 0, 0);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(width, height);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 container.appendChild(renderer.domElement);
 
 /* Lumières */
-scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
-dirLight.position.set(3, 6, 4);
+scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+
+const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
+dirLight.position.set(3, 7, 4);
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.set(1024, 1024);
+dirLight.shadow.camera.left = -3.6;
+dirLight.shadow.camera.right = 3.6;
+dirLight.shadow.camera.top = 3.6;
+dirLight.shadow.camera.bottom = -3.6;
+dirLight.shadow.camera.near = 1;
+dirLight.shadow.camera.far = 15;
 scene.add(dirLight);
+
+/* Sol invisible (en disque) qui ne reçoit que l'ombre */
+const ground = new THREE.Mesh(
+    new THREE.CircleGeometry(3.4, 48),
+    new THREE.ShadowMaterial({ opacity: 0.22 })
+);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -0.02;
+ground.receiveShadow = true;
+scene.add(ground);
 
 /* Groupe qui contient tous les segments du donut */
 const donutGroup = new THREE.Group();
@@ -64,17 +87,18 @@ function createDonutSegment(innerRadius, outerRadius, startAngle, endAngle, dept
     const geometry = new THREE.ExtrudeGeometry(shape, {
         depth: depth,
         bevelEnabled: true,
-        bevelThickness: 0.06,
-        bevelSize: 0.06,
+        bevelThickness: 0.05,
+        bevelSize: 0.05,
         bevelSegments: 2
     });
     geometry.rotateX(-Math.PI / 2);
     return geometry;
 }
 
-const innerRadius = 1.7;
-const outerRadius = 2.6;
-const depth = 0.55;
+const innerRadius = 1.9;
+const outerRadius = 2.7;
+const depth = 0.5;
+const popDistance = 0.22; /* ~10-15px de décalage au survol */
 
 const segmentMeshes = [];
 let angle = -Math.PI / 2;
@@ -83,19 +107,24 @@ data.forEach(item => {
     const sweep = (item.percent / 100) * Math.PI * 2;
     const startAngle = angle;
     const endAngle = angle + sweep;
+    const midAngle = (startAngle + endAngle) / 2;
 
     const geometry = createDonutSegment(innerRadius, outerRadius, startAngle, endAngle, depth);
     const material = new THREE.MeshStandardMaterial({
         color: item.color,
         metalness: 0.15,
-        roughness: 0.55,
-        emissive: 0x000000,
-        emissiveIntensity: 0.4
+        roughness: 0.5,
+        emissive: 0x000000
     });
 
     const mesh = new THREE.Mesh(geometry, material);
+    mesh.castShadow = true;
+    mesh.receiveShadow = false;
+
     mesh.userData = item;
-    mesh.userData.midAngle = (startAngle + endAngle) / 2;
+    mesh.userData.dir = new THREE.Vector3(Math.cos(midAngle), 0, -Math.sin(midAngle));
+    mesh.userData.targetOffset = 0;   /* 0 = au repos, 1 = sorti */
+    mesh.userData.currentOffset = 0;
 
     donutGroup.add(mesh);
     segmentMeshes.push(mesh);
@@ -119,27 +148,26 @@ function onPointerMove(event) {
     if (intersects.length > 0) {
         const mesh = intersects[0].object;
         if (hovered !== mesh) {
-            if (hovered) resetMeshScale(hovered);
+            if (hovered) setActive(hovered, false);
             hovered = mesh;
             fillPanel(mesh.userData);
+            setActive(mesh, true);
         }
-        mesh.scale.set(1.12, 1, 1.12);
-        mesh.material.emissive.setHex(0xffffff);
     } else if (hovered) {
-        resetMeshScale(hovered);
+        setActive(hovered, false);
         hovered = null;
         resetPanel();
     }
 }
 
-function resetMeshScale(mesh) {
-    mesh.scale.set(1, 1, 1);
-    mesh.material.emissive.setHex(0x000000);
+function setActive(mesh, active) {
+    mesh.userData.targetOffset = active ? 1 : 0;
+    mesh.material.emissive.setHex(active ? 0x222222 : 0x000000);
 }
 
 renderer.domElement.addEventListener('mousemove', onPointerMove);
 renderer.domElement.addEventListener('mouseleave', () => {
-    if (hovered) resetMeshScale(hovered);
+    if (hovered) setActive(hovered, false);
     hovered = null;
     resetPanel();
 });
@@ -147,9 +175,19 @@ renderer.domElement.addEventListener('mouseleave', () => {
 /* ===== Boucle d'animation ===== */
 function animate() {
     requestAnimationFrame(animate);
+
     if (!hovered) {
         donutGroup.rotation.y += 0.004;
     }
+
+    /* Transition douce (~0.3s) pour le décalage du segment survolé */
+    segmentMeshes.forEach(mesh => {
+        const ud = mesh.userData;
+        ud.currentOffset += (ud.targetOffset - ud.currentOffset) * 0.18;
+        const d = ud.currentOffset * popDistance;
+        mesh.position.set(ud.dir.x * d, 0, ud.dir.z * d);
+    });
+
     renderer.render(scene, camera);
 }
 animate();

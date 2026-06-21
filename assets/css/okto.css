@@ -157,36 +157,47 @@ nav a:nth-child(n+2) {
 
 .chart-container {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
 }
 
 #donut3d {
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
+    background: transparent;
+    border: none;
 }
 
 #donut3d canvas {
     display: block;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .center-info {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 105px;
+    width: 130px;
     transform: translate(-50%, -50%);
     text-align: center;
     pointer-events: none;
 }
 
+.center-info #icon:empty {
+    display: none;
+}
+
 .center-info #icon {
-    font-size: 21px;
+    font-size: 26px;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .center-info h3 {
-    margin: 5px 0 3px;
-    font-size: 11px;
+    margin: 4px 0 3px;
+    font-size: 13px;
     line-height: 1.2;
 }
 
@@ -194,14 +205,18 @@ nav a:nth-child(n+2) {
     display: block;
     font-weight: bold;
     color: #FF4040;
-    font-size: 10px;
+    font-size: 12px;
+}
+
+.center-info span:empty {
+    display: none;
 }
 
 .center-info p {
     margin-top: 5px;
-    font-size: 8px;
-    line-height: 1.2;
-    color: #555;
+    font-size: 10px;
+    line-height: 1.3;
+    color: #666;
 }
 
 .services-content {
@@ -229,7 +244,7 @@ nav a:nth-child(n+2) {
 
     .chart-container,
     #donut3d {
-        width: 240px;
-        height: 240px;
+        width: 260px;
+        height: 260px;
     }
 }
