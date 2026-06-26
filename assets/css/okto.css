@@ -322,7 +322,7 @@ nav a:nth-child(n+2) {
 .image-swap {
     position: relative;
     width: 100%;
-    aspect-ratio: 547 / 469;
+    aspect-ratio: 490 / 368;
 }
 
 .image-swap img {
@@ -368,5 +368,74 @@ nav a:nth-child(n+2) {
 
     .team-btn {
         padding: 14px 40px;
+    }
+}
+
+/* ===== Section Nos Partenaires ===== */
+.partners-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.partners-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 70px;
+}
+
+.partners-title .title-dark {
+    color: #8B0000;
+    margin-right: 14px;
+}
+
+.partners-title .title-accent {
+    color: #FF4040;
+}
+
+.partners-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.partner-logo {
+    height: 60px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.85;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .partners-logos {
+        gap: 45px;
+    }
+
+    .partner-logo {
+        height: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    .partners-title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .partners-logos {
+        gap: 30px;
     }
 }

@@ -1,10 +1,9 @@
 /* ===== Données des services ===== */
 const data = [
-    { name: "Développement Web",    percent: 40, icon: "🌐", color: 0xff4d4d, description: "Création de sites web, e-commerce et applications web." },
-    { name: "Applications Mobile",  percent: 25, icon: "📱", color: 0x3366ff, description: "Android • iOS • React Native" },
-    { name: "Design Graphique",     percent: 15, icon: "🎨", color: 0x222222, description: "Logos • UI/UX • Branding" },
-    { name: "Marketing Digital",    percent: 10, icon: "📢", color: 0xffc107, description: "SEO • SEA • Réseaux sociaux" },
-    { name: "Community Management", percent: 10, icon: "🤝", color: 0x00b894, description: "Animation • Modération • Veille" }
+    { name: "Broadcast & Audiovisuelle",    percent: 40, icon: "🌐", color: 0xff4d4d, description: "Création de sites web, e-commerce et applications web." },
+    { name: "Mesures Télécoms",  percent: 25, icon: "📱", color: 0x3366ff, description: "Android • iOS • React Native" },
+    { name: "Etudes, recherche et innovation",     percent: 15, icon: "🎨", color: 0x222222, description: "Logos • UI/UX • Branding" },
+    { name: "Formation & placement",    percent: 10, icon: "📢", color: 0xffc107, description: "SEO • SEA • Réseaux sociaux" }
 ];
 
 /* ===== Panneau central (overlay HTML) ===== */
@@ -15,7 +14,7 @@ const desc = document.getElementById('description');
 
 function resetPanel() {
     icon.textContent = '';
-    name.textContent = '5 Services';
+    name.textContent = '4 Services';
     percent.textContent = '';
     desc.textContent = 'Transformons vos idées en solutions digitales';
 }
