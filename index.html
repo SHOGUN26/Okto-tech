@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>OKTO Technologies</title>
     <link rel="stylesheet" href="assets/css/okto.css">
+    <link rel="stylesheet" href="assets/css/actustyle.css">
     <link rel="shortcut icon" href="assets/icons/android-chrome-512x512.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -19,11 +20,11 @@
             <small>TECHNOLOGIES</small>
         </div>
         <nav>
-            <a href="#">Accueil</a>
+            <a href="index.html">Accueil</a>
             <a href="#">À propos</a>
             <a href="#">Nos services</a>
             <a href="#">Notre équipe</a>
-            <a href="#">Infos et actus</a>
+            <a href="actu.html">Infos et actus</a>
             <a href="#">Contact</a>
         </nav>
     </header>
@@ -99,7 +100,7 @@
             <span class="title-dark">NOS</span>
             <span class="title-accent">PARTENAIRES</span>
         </h2>
- 
+
         <div class="partners-logos">
             <img src="assets/images/partners/beinsports.jpg" alt="beinsports" class="partner-logo">
             <img src="assets/images/partners/artcom.jpg" alt="artcom" class="partner-logo">
@@ -111,12 +112,22 @@
             <img src="assets/images/partners/istc.jpg" alt="istc" class="partner-logo">
             <img src="assets/images/partners/rti.jpg" alt="rti" class="partner-logo">
         </div>
- 
+
         <button class="team-btn">Plus</button>
+    </section>
+    <section class="projects-section">
+        <h2 class="projects-title">
+            <span class="title-dark">DERNIERS</span>
+            <span class="title-accent">PROJETS</span>
+        </h2>
+
+        <div class="projects-grid" data-latest-projects></div>
     </section>
 
 </body>
 
 <script src="assets/js/okto.js"></script>
+<script src="assets/js/projects-data.js"></script>
+<script src="assets/js/projects-render.js"></script>
 
 </html>
