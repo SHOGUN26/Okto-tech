@@ -1,9 +1,9 @@
 /* ===== Données des services ===== */
 const data = [
-    { name: "Broadcast & Audiovisuelle",    percent: 40, icon: "🌐", color: 0xff4d4d, description: "Création de sites web, e-commerce et applications web." },
-    { name: "Mesures Télécoms",  percent: 25, icon: "📱", color: 0x3366ff, description: "Android • iOS • React Native" },
-    { name: "Etudes, recherche et innovation",     percent: 15, icon: "🎨", color: 0x222222, description: "Logos • UI/UX • Branding" },
-    { name: "Formation & placement",    percent: 10, icon: "📢", color: 0xffc107, description: "SEO • SEA • Réseaux sociaux" }
+    { name: "Broadcast & Audiovisuel",         percent: 25, icon: "📡", color: 0xff4d4d, description: "Diffusion TV/radio • Production audiovisuelle • Régie technique" },
+    { name: "Mesures Télécoms",                percent: 25, icon: "📶", color: 0x3366ff, description: "Audit réseau • Couverture mobile • Contrôle qualité des signaux" },
+    { name: "Études, recherche et innovation", percent: 25, icon: "🔬", color: 0x222222, description: "Veille technologique • R&D • Études de faisabilité" },
+    { name: "Formation & placement",           percent: 25, icon: "🎓", color: 0xffc107, description: "Formations techniques • Accompagnement • Insertion professionnelle" }
 ];
 
 /* ===== Panneau central (overlay HTML) ===== */
