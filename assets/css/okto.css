@@ -248,3 +248,125 @@ nav a:nth-child(n+2) {
         height: 260px;
     }
 }
+
+/* ===== Section Notre Équipe ===== */
+.team-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 60px;
+}
+
+.team-content {
+    flex: 1 1 380px;
+    max-width: 480px;
+}
+
+.team-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+    line-height: 1.1;
+}
+
+.title-dark {
+    color: #8B0000;
+    margin-right: 12px;
+}
+
+.title-accent {
+    color: #FF4040;
+}
+
+.team-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #5a5d6e;
+    margin-bottom: 36px;
+}
+
+.team-btn {
+    background-color: #c0476b;
+    color: #fff;
+    border: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 16px 56px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.team-btn:hover {
+    background-color: #ab3a56;
+}
+
+.team-btn:focus-visible {
+    outline: 3px solid #8B0000;
+    outline-offset: 3px;
+}
+
+/* Illustration avec effet couleur -> bleu au survol */
+.team-illustration {
+    flex: 1 1 420px;
+    max-width: 560px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-swap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 547 / 469;
+}
+
+.image-swap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.image-swap .img-color {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.image-swap:hover .img-color,
+.image-swap:focus-within .img-color {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .image-swap .img-color {
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 24px;
+    }
+
+    .team-title {
+        font-size: 2.1rem;
+    }
+
+    .team-content {
+        max-width: 100%;
+    }
+
+    .team-btn {
+        padding: 14px 40px;
+    }
+}
