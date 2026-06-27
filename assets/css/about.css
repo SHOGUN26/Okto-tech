@@ -79,7 +79,6 @@ nav a:nth-child(n+3) {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: url('votre-image.jpg') center/cover no-repeat;
   background-color: #1e2846;
 }
 
@@ -94,7 +93,7 @@ nav a:nth-child(n+3) {
   position: relative;
   font-size: 58px;
   font-weight: 800;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: 6px;
   color: #fff;
   text-transform: uppercase;
@@ -113,7 +112,7 @@ nav a:nth-child(n+3) {
   font-weight: 800;
   letter-spacing: 3px;
   text-transform: uppercase;
-  font-style: italic;
+  font-style: normal;
   text-align: center;
   margin-bottom: 50px;
   color: #555;
