@@ -248,3 +248,249 @@ nav a:nth-child(n+2) {
         height: 260px;
     }
 }
+
+
+
+
+/* ===================== */
+/* Section Notre Équipe  */
+/* ===================== */
+ 
+.equipe-section {
+  background: #e8eaf0;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 60px;
+}
+ 
+.equipe-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 960px;
+  gap: 60px;
+}
+ 
+.equipe-text {
+  flex: 1;
+  max-width: 460px;
+}
+ 
+.equipe-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  color: #8b0000;
+}
+ 
+.equipe-title span {
+  color: #ff4040;
+}
+ 
+.equipe-para {
+  font-size: 15px;
+  color: #5a5a5a;
+  line-height: 1.75;
+}
+ 
+.equipe-illus {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.equipe-btn-row {
+  margin-top: 55px;
+}
+ 
+.btn-plus {
+  background: #c0405a;
+  color: #fff;
+  border: none;
+  padding: 15px 70px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+}
+ 
+.btn-plus:hover {
+  background: #a83450;
+}
+ 
+/* --- Animation CSS pure --- */
+ 
+.team-anim {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+ 
+/* Cercles orbitaux */
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(192, 64, 90, 0.25);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+ 
+.orbit-1 { width: 120px; height: 120px; }
+.orbit-2 { width: 200px; height: 200px; }
+.orbit-3 { width: 280px; height: 280px; }
+ 
+/* Avatar central */
+.avatar-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #c0405a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  font-weight: 700;
+  z-index: 10;
+  box-shadow: 0 0 0 6px rgba(192, 64, 90, 0.15);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+ 
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(192, 64, 90, 0.15); }
+  50%       { box-shadow: 0 0 0 14px rgba(192, 64, 90, 0.05); }
+}
+ 
+/* Avatars orbitants */
+.dot {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  top: 50%;
+  left: 50%;
+}
+ 
+/* Orbit 1 — rayon 60px, 2 dots */
+.dot-a {
+  background: #6a3fb5;
+  margin: -21px 0 0 -21px;
+  animation: orbit1-a 6s linear infinite;
+}
+.dot-b {
+  background: #1a3fa0;
+  margin: -21px 0 0 -21px;
+  animation: orbit1-b 6s linear infinite;
+}
+ 
+@keyframes orbit1-a {
+  from { transform: rotate(0deg)   translateX(60px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+@keyframes orbit1-b {
+  from { transform: rotate(180deg) translateX(60px) rotate(-180deg); }
+  to   { transform: rotate(540deg) translateX(60px) rotate(-540deg); }
+}
+ 
+/* Orbit 2 — rayon 100px, 3 dots */
+.dot-c {
+  background: #c0405a;
+  margin: -21px 0 0 -21px;
+  animation: orbit2-a 9s linear infinite;
+}
+.dot-d {
+  background: #2e7d32;
+  margin: -21px 0 0 -21px;
+  animation: orbit2-b 9s linear infinite;
+}
+.dot-e {
+  background: #b06d00;
+  margin: -21px 0 0 -21px;
+  animation: orbit2-c 9s linear infinite;
+}
+ 
+@keyframes orbit2-a {
+  from { transform: rotate(0deg)   translateX(100px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+@keyframes orbit2-b {
+  from { transform: rotate(120deg) translateX(100px) rotate(-120deg); }
+  to   { transform: rotate(480deg) translateX(100px) rotate(-480deg); }
+}
+@keyframes orbit2-c {
+  from { transform: rotate(240deg) translateX(100px) rotate(-240deg); }
+  to   { transform: rotate(600deg) translateX(100px) rotate(-600deg); }
+}
+ 
+/* Orbit 3 — rayon 140px, 4 dots */
+.dot-f {
+  background: #555;
+  margin: -21px 0 0 -21px;
+  animation: orbit3-a 13s linear infinite;
+}
+.dot-g {
+  background: #c2186e;
+  margin: -21px 0 0 -21px;
+  animation: orbit3-b 13s linear infinite;
+}
+.dot-h {
+  background: #0077b6;
+  margin: -21px 0 0 -21px;
+  animation: orbit3-c 13s linear infinite;
+}
+.dot-i {
+  background: #4caf50;
+  margin: -21px 0 0 -21px;
+  animation: orbit3-d 13s linear infinite;
+}
+ 
+@keyframes orbit3-a {
+  from { transform: rotate(0deg)   translateX(140px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+}
+@keyframes orbit3-b {
+  from { transform: rotate(90deg)  translateX(140px) rotate(-90deg); }
+  to   { transform: rotate(450deg) translateX(140px) rotate(-450deg); }
+}
+@keyframes orbit3-c {
+  from { transform: rotate(180deg) translateX(140px) rotate(-180deg); }
+  to   { transform: rotate(540deg) translateX(140px) rotate(-540deg); }
+}
+@keyframes orbit3-d {
+  from { transform: rotate(270deg) translateX(140px) rotate(-270deg); }
+  to   { transform: rotate(630deg) translateX(140px) rotate(-630deg); }
+}
+ 
+@media (max-width: 700px) {
+  .equipe-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .equipe-illus {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
