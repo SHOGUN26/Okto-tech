@@ -1,10 +1,9 @@
 /* ===== Données des services ===== */
 const data = [
-    { name: "Développement Web",    percent: 40, icon: "🌐", color: 0xff4d4d, description: "Création de sites web, e-commerce et applications web." },
-    { name: "Applications Mobile",  percent: 25, icon: "📱", color: 0x3366ff, description: "Android • iOS • React Native" },
-    { name: "Design Graphique",     percent: 15, icon: "🎨", color: 0x222222, description: "Logos • UI/UX • Branding" },
-    { name: "Marketing Digital",    percent: 10, icon: "📢", color: 0xffc107, description: "SEO • SEA • Réseaux sociaux" },
-    { name: "Community Management", percent: 10, icon: "🤝", color: 0x00b894, description: "Animation • Modération • Veille" }
+    { name: "Broadcast & Audiovisuel",         percent: 25, icon: "📡", color: 0xff4d4d, description: "Diffusion TV/radio • Production audiovisuelle • Régie technique" },
+    { name: "Mesures Télécoms",                percent: 25, icon: "📶", color: 0x3366ff, description: "Audit réseau • Couverture mobile • Contrôle qualité des signaux" },
+    { name: "Études, recherche et innovation", percent: 25, icon: "🔬", color: 0x222222, description: "Veille technologique • R&D • Études de faisabilité" },
+    { name: "Formation & placement",           percent: 25, icon: "🎓", color: 0xffc107, description: "Formations techniques • Accompagnement • Insertion professionnelle" }
 ];
 
 /* ===== Panneau central (overlay HTML) ===== */
@@ -15,7 +14,7 @@ const desc = document.getElementById('description');
 
 function resetPanel() {
     icon.textContent = '';
-    name.textContent = '5 Services';
+    name.textContent = '4 Services';
     percent.textContent = '';
     desc.textContent = 'Transformons vos idées en solutions digitales';
 }
@@ -200,3 +199,5 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
 });
+
+document.getElementById('footer-year').textContent = new Date().getFullYear();

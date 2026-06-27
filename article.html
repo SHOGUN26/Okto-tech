@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Infos et actus — OKTO Technologies</title>
+    <title>Article — OKTO Technologies</title>
     <link rel="stylesheet" href="assets/css/okto.css">
     <link rel="shortcut icon" href="assets/icons/android-chrome-512x512.png" type="image/x-icon">
 </head>
@@ -22,23 +22,19 @@
             <a href="#">À propos</a>
             <a href="#">Nos services</a>
             <a href="#">Notre équipe</a>
-            <a href="#" class="active">Infos et actus</a>
+            <a href="actu.html" class="active">Infos et actus</a>
             <a href="#">Contact</a>
         </nav>
     </header>
 
-    <section class="projects-section">
-        <h2 class="projects-title">
-            <span class="title-dark">DERNIERS</span>
-            <span class="title-accent">PROJETS</span>
-        </h2>
-
-        <div class="projects-grid" data-latest-projects></div>
+    <section class="article-section">
+        <a href="actu.html" class="article-back">&larr; Retour aux actus</a>
+        <div data-article-container></div>
     </section>
 
 </body>
 
 <script src="assets/js/projects-data.js"></script>
-<script src="assets/js/projects-render.js"></script>
+<script src="assets/js/article-render.js"></script>
 
 </html>
