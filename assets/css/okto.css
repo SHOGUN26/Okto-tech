@@ -416,6 +416,35 @@ nav a.active {
     opacity: 1;
 }
 
+/* Logos partenaires supplémentaires : masqués par défaut,
+   révélés en fondu au clic sur le bouton "Plus" */
+.partner-logo-extra {
+    display: none;
+    opacity: 0;
+}
+
+.partner-logo-extra.is-visible {
+    display: block;
+    opacity: 0.85;
+    animation: partner-fade-in 0.4s ease forwards;
+}
+
+@keyframes partner-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.85;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .partner-logo-extra.is-visible {
+        animation: none;
+    }
+}
+
 @media (max-width: 900px) {
     .partners-logos {
         gap: 45px;

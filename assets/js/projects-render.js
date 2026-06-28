@@ -7,8 +7,8 @@
        via data-max-items sur le conteneur
 
    linkTarget :
-     - "list"    -> chaque carte renvoie vers actu.html (utilisé sur index.html)
-     - "article" -> chaque carte renvoie vers article.html?id=... (utilisé sur actu.html)
+     - "list"    -> chaque carte renvoie vers actu.html (liste complète des articles)
+     - "article" -> chaque carte renvoie vers article.html?id=... (lecture de l'article)
 */
 
 function renderLatestProjects(containerSelector, maxItems = 3, linkTarget = 'article') {
@@ -46,26 +46,36 @@ function renderLatestProjects(containerSelector, maxItems = 3, linkTarget = 'art
 
 /* Initialisation automatique au chargement de la page :
    cherche un conteneur portant l'attribut data-latest-projects.
-   - La cible des liens est déduite via data-link-target, sinon du nom de fichier.
+
+   - La cible des liens (data-link-target) est PRIORITAIRE si elle est précisée
+     dans le HTML : utilisez "article" pour renvoyer vers la lecture de l'article,
+     ou "list" pour renvoyer vers la page actu.html.
+   - Si data-link-target n'est pas précisé, on déduit un comportement par défaut
+     SANS JAMAIS rediriger par erreur vers actu.html depuis cette page elle-même :
+       -> sur actu.html : "article" (cliquer sur une carte ouvre l'article)
+       -> sur les autres pages (ex: index.html) : "list" (cliquer renvoie vers la liste)
    - Le nombre d'articles est déduit via data-max-items ("all" ou un nombre),
-     sinon 3 sur la page d'accueil et "tous" sur les autres pages (ex: actu.html). */
+     sinon 3 sur la page d'accueil et "tous" (Infinity) sur les autres pages. */
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('[data-latest-projects]');
-    if (container) {
-        const explicitTarget = container.getAttribute('data-link-target');
-        const isHomePage = /(^|\/)index\.html$/.test(window.location.pathname) || window.location.pathname.endsWith('/');
-        const linkTarget = explicitTarget || (isHomePage ? 'list' : 'article');
+    if (!container) return;
 
-        const explicitMax = container.getAttribute('data-max-items');
-        let maxItems;
-        if (explicitMax === 'all') {
-            maxItems = Infinity;
-        } else if (explicitMax) {
-            maxItems = parseInt(explicitMax, 10);
-        } else {
-            maxItems = isHomePage ? 3 : Infinity;
-        }
+    const path = window.location.pathname;
+    const isActuPage = /(^|\/)actu\.html$/.test(path);
+    const isHomePage = /(^|\/)index\.html$/.test(path) || path.endsWith('/');
 
-        renderLatestProjects('[data-latest-projects]', maxItems, linkTarget);
+    const explicitTarget = container.getAttribute('data-link-target');
+    const linkTarget = explicitTarget || (isActuPage ? 'article' : 'list');
+
+    const explicitMax = container.getAttribute('data-max-items');
+    let maxItems;
+    if (explicitMax === 'all') {
+        maxItems = Infinity;
+    } else if (explicitMax) {
+        maxItems = parseInt(explicitMax, 10);
+    } else {
+        maxItems = isHomePage ? 3 : Infinity;
     }
+
+    renderLatestProjects('[data-latest-projects]', maxItems, linkTarget);
 });
