@@ -82,11 +82,25 @@ nav a:nth-child(n+3) {
   background-color: #1e2846;
 }
 
+/* Pattern décoratif superposé, subtil */
+.apropos-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+      linear-gradient(135deg, #0000 18.75%, #E4E4ED 0 31.25%, #0000 0),
+      repeating-linear-gradient(45deg, #E4E4ED -6.25% 6.25%, #E56161 0 18.75%);
+  background-size: 64px 64px;
+  opacity: 0.12;
+  z-index: 0;
+}
+
 .apropos-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(30, 40, 70, 0.55);
+  z-index: 0;
 }
 
 .apropos-hero h1 {
@@ -116,10 +130,6 @@ nav a:nth-child(n+3) {
   text-align: center;
   margin-bottom: 50px;
   color: #555;
-}
-
-.apropos-brand span {
-  color: #c0405a;
 }
 
 .apropos-content h3 {

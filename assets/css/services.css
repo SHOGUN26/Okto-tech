@@ -77,11 +77,33 @@ nav a:nth-child(n+4) {
   background-color: #1e2846;
 }
 
+/* Pattern décoratif superposé, subtil */
+.service-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg,#0000 calc(25%/3), #E57373 0 calc(50%/3),
+        #0000 0 calc(250%/3), #E57373 0 calc(275%/3),
+        #0000 0),linear-gradient( 45deg,#E57373 calc(25%/3), #0000 0 calc(50%/3),
+        #E57373 0 25%, #0000 0 75%,
+        #E57373 0 calc(250%/3), #0000 0 calc(275%/3),#E57373 0),
+        linear-gradient(-45deg,#0000 calc(25%/3), #E57373 0 calc(50%/3),
+        #0000 0 calc(250%/3), #E57373 0 calc(275%/3),
+        #0000 0),linear-gradient(-45deg,#E57373 calc(25%/3), #0000 0 calc(50%/3),
+        #E57373 0 25%, #0000 0 75%,
+        #E57373 0 calc(250%/3), #0000 0 calc(275%/3),#E57373 0) #E4E4ED;
+  background-size: 64px 64px;
+  background-position: 0 0, 32px 32px;
+  opacity: 0.12;
+  z-index: 0;
+}
+
 .service-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(30, 40, 70, 0.55);
+  z-index: 0;
 }
 
 .service-hero h1 {

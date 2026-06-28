@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/css/contact.css" />
-    <title>Nous contactez - OKTO</title>
+    <title>Nous contacter - OKTO</title>
   </head>
   <body>
     <div class="top-bar"></div>
@@ -18,9 +18,9 @@
         <a href="index.html">Accueil</a>
         <a href="about.html">À propos</a>
         <a href="services.html">Nos services</a>
-        <a href="team.html">Notre équipe</a>
+        <a href="">Notre équipe</a>
         <a href="actu.html">Infos et actus</a>
-        <a href="contacts.html">Contact</a>
+        <a href="contacts.html" class="active">Contact</a>
       </nav>
     </header>
 
@@ -29,36 +29,102 @@
     </section>
 
     <section class="contact-content">
-      <h2 class="contact-brand"><span>OKTO</span> TECHNOLOGIES</h2>
+      <h2 class="contact-brand">
+        <span class="logo-ok">OK</span><span class="logo-to">TO</span> TECHNOLOGIES
+      </h2>
+      <p class="contact-lead">
+        Une question, un projet, un besoin d'assistance ? Notre équipe vous répond rapidement.
+      </p>
 
       <div class="contact-grid">
         <!-- Formulaire -->
-        <div class="contact-form">
-          <input type="text" placeholder="Nom" />
-          <input type="email" placeholder="E-mail" />
-          <input type="tel" placeholder="Téléphone" />
-          <textarea placeholder="Rédigez votre message ici..."></textarea>
-          <button type="submit">Envoyer</button>
-        </div>
+        <form class="contact-form" data-animate>
+          <div class="field">
+            <input type="text" id="cf-name" placeholder=" " required />
+            <label for="cf-name">Nom complet</label>
+          </div>
+
+          <div class="field">
+            <input type="email" id="cf-email" placeholder=" " required />
+            <label for="cf-email">E-mail</label>
+          </div>
+
+          <div class="field">
+            <input type="tel" id="cf-phone" placeholder=" " />
+            <label for="cf-phone">Téléphone</label>
+          </div>
+
+          <div class="field">
+            <textarea id="cf-message" placeholder=" " required></textarea>
+            <label for="cf-message">Votre message</label>
+          </div>
+
+          <button type="submit">
+            <span>Envoyer</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="13 6 19 12 13 18"></polyline>
+            </svg>
+          </button>
+        </form>
 
         <!-- Infos -->
-        <div class="contact-info">
+        <div class="contact-info" data-animate>
           <div class="contact-info-block">
-            <h3>Notre adresse</h3>
-            <p>
-              15, rue du Château<br />75001 Paris, France<br />info@monsite.fr
-            </p>
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <h3>Notre adresse</h3>
+              <p>Bingerville - Akandjé<br />Abidjan, Côte d'Ivoire</p>
+            </div>
           </div>
 
           <div class="contact-info-block">
-            <h3>Nous joindre</h3>
-            <p>
-              Gratuit : 01 23 45 67 89<br />Tél : 01 23 45 67 89<br />Fax : 01
-              23 45 67 89
-            </p>
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Téléphone</h3>
+              <p><a href="tel:+22548357159">+225 48 35 71 59</a></p>
+            </div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h3>E-mail</h3>
+              <p><a href="mailto:info@okto.ci">info@okto.ci</a></p>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Carte -->
+      <div class="contact-map" data-animate>
+        <iframe
+          title="Localisation OKTO Technologies - Bingerville Akandjé"
+          src="https://www.google.com/maps?q=Akandj%C3%A9,+Bingerville,+C%C3%B4te+d%27Ivoire&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </section>
+
+    <script src="/assets/js/contact.js"></script>
   </body>
 </html>
