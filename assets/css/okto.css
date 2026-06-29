@@ -233,19 +233,6 @@ nav a.active {
     color: #333;
 }
 
-@media (max-width: 900px) {
-    .services-section {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .chart-container,
-    #donut3d {
-        width: 260px;
-        height: 260px;
-    }
-}
-
 /* ===== Section Notre Équipe ===== */
 .team-section {
     display: flex;
@@ -348,26 +335,6 @@ nav a.active {
     }
 }
 
-@media (max-width: 768px) {
-    .team-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 24px;
-    }
-
-    .team-title {
-        font-size: 2.1rem;
-    }
-
-    .team-content {
-        max-width: 100%;
-    }
-
-    .team-btn {
-        padding: 14px 40px;
-    }
-}
-
 /* ===== Section Nos Partenaires ===== */
 .partners-section {
     max-width: 1200px;
@@ -416,8 +383,6 @@ nav a.active {
     opacity: 1;
 }
 
-/* Logos partenaires supplémentaires : masqués par défaut,
-   révélés en fondu au clic sur le bouton "Plus" */
 .partner-logo-extra {
     display: none;
     opacity: 0;
@@ -430,39 +395,13 @@ nav a.active {
 }
 
 @keyframes partner-fade-in {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 0.85;
-    }
+    from { opacity: 0; }
+    to   { opacity: 0.85; }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .partner-logo-extra.is-visible {
         animation: none;
-    }
-}
-
-@media (max-width: 900px) {
-    .partners-logos {
-        gap: 45px;
-    }
-
-    .partner-logo {
-        height: 48px;
-    }
-}
-
-@media (max-width: 600px) {
-    .partners-title {
-        font-size: 2rem;
-        letter-spacing: 1px;
-    }
-
-    .partners-logos {
-        gap: 30px;
     }
 }
 
@@ -700,43 +639,6 @@ nav a.active {
     padding: 16px;
     font-size: 0.85rem;
     color: #6b6f80;
-}
-
-@media (max-width: 900px) {
-    .footer-columns {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 50px 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .cta-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 50px 24px 80px;
-    }
-}
-
-@media (max-width: 900px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .projects-section {
-        padding: 60px 24px;
-    }
-
-    .projects-title {
-        font-size: 2rem;
-        letter-spacing: 1px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* Lien englobant les cartes projets (accueil + page actu) */

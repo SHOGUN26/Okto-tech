@@ -1,44 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Infos et actus — OKTO Technologies</title>
-    <link rel="stylesheet" href="assets/css/okto.css">
-    <link rel="shortcut icon" href="assets/icons/android-chrome-512x512.png" type="image/x-icon">
-</head>
+    <link rel="stylesheet" href="assets/css/okto.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/icons/android-chrome-512x512.png"
+      type="image/x-icon"
+    />
+  </head>
 
-<body>
-
+  <body>
     <div class="top-bar"></div>
 
     <header>
-        <div class="logo">
-            <span class="logo-ok">OK</span><span class="logo-to">TO</span>
-            <small>TECHNOLOGIES</small>
-        </div>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="about.html">À propos</a>
-            <a href="services.html">Nos services</a>
-            <a href="">Notre équipe</a>
-            <a href="actu.html" class="active">Infos et actus</a>
-            <a href="contacts.html">Contact</a>
-        </nav>
+      <div class="logo">
+        <span class="logo-ok">OK</span><span class="logo-to">TO</span>
+        <small>TECHNOLOGIES</small>
+      </div>
+      <!-- Bouton du menu burger -->
+      <button
+        class="burger"
+        id="burger"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="about.html">À propos</a>
+        <a href="services.html">Nos services</a>
+        <a href="">Notre équipe</a>
+        <a href="actu.html" class="active">Infos et actus</a>
+        <a href="contacts.html">Contact</a>
+      </nav>
     </header>
 
     <section class="projects-section">
-        <h2 class="projects-title">
-            <span class="title-dark">DERNIERS</span>
-            <span class="title-accent">PROJETS</span>
-        </h2>
+      <h2 class="projects-title">
+        <span class="title-dark">DERNIERS</span>
+        <span class="title-accent">PROJETS</span>
+      </h2>
 
-        <div class="projects-grid" data-latest-projects></div>
+      <div class="projects-grid" data-latest-projects></div>
     </section>
 
-</body>
 
-<script src="assets/js/projects-data.js"></script>
-<script src="assets/js/projects-render.js"></script>
+    <!-- Footer -->
+     <section class="site-footer">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3 class="footer-title">Qui sommes-nous ?</h3>
+          <p class="footer-text">
+            OKTO Technologies est une entreprise créée par des Ingénieurs
+            ivoiriens chevronnés dans le domaine des Technologies de
+            l'Audiovisuel et des Télécommunications.
+          </p>
+          <p class="footer-text">
+            Établie en Côte d'Ivoire sous le numéro RCCM CI-ABJ-2017-B-19296,
+            avec un capital de 5 000 000 FCFA, OKTO Technologies vient répondre
+            aux besoins grandissants d'une expertise locale et de plateaux
+            techniques pour les Études, la Télévision en Direct, l'accès
+            universel aux services des Télécommunications et les
+            Télécommunications d'Urgence.
+          </p>
+        </div>
 
+        <div class="footer-col">
+          <h3 class="footer-title">Nos services</h3>
+          <p class="footer-text">
+            <strong>Le Direct Par Satellite :</strong> Retransmission Vidéo -
+            News - Sport - Conférence - Débats - Divertissement - Concert -
+            Meeting
+          </p>
+          <p class="footer-text">
+            <strong>Les Télécommunications :</strong> Télécommunications
+            d'urgence et accès Universel - Accès Internet Occasionnel et
+            temporel
+          </p>
+          <p class="footer-text">
+            <strong>Les Contrôles et mesures :</strong> Contrôles du spectre et
+            des systèmes Radioélectriques - Interférométrie
+          </p>
+          <p class="footer-text">
+            <strong>Les Études &amp; Formations :</strong> Études Stratégiques -
+            Études Techniques - Études Économiques
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">Nous joindre</h3>
+          <form class="footer-form">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              class="footer-input"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              class="footer-input"
+            />
+            <textarea
+              name="message"
+              placeholder="Message"
+              class="footer-textarea"
+            ></textarea>
+            <button type="submit" class="footer-submit">Envoyer</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        Tous les droits réservés &copy; <span id="footer-year"></span> - OKTO
+        Technologies.
+      </div>
+    </section>
+  </body>
+
+  <script src="assets/js/projects-data.js"></script>
+  <script src="assets/js/projects-render.js"></script>
+  <script src="assets/js/burger.js"></script>
 </html>

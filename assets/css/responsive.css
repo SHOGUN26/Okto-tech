@@ -1,0 +1,123 @@
+/* ===== Burger : caché par défaut ===== */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  margin-left: auto;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #8B0000;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animation burger → croix */
+.burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.is-open span:nth-child(2) { opacity: 0; }
+.burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ===== Mobile ≤ 1024px ===== */
+@media (max-width: 1024px) {
+
+  /* Header */
+  header {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid #f3d9d9;
+    margin-top: 8px;
+  }
+
+  nav.is-open {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 16px;
+    padding: 14px 4px;
+    border-bottom: 1px solid #f3d9d9;
+  }
+
+  nav a:last-child {
+    border-bottom: none;
+  }
+
+  /* Hero */
+  .hero {
+    height: auto;
+    padding: 60px 20px 80px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero h1.tech {
+    font-size: 40px;
+  }
+
+  .hero .tagline {
+    font-size: 18px;
+  }
+
+  .hero .buttons {
+    position: static;
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  /* Services */
+  .services-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+    gap: 40px;
+  }
+
+  /* CTA */
+  .cta-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 20px 80px;
+  }
+
+  /* Footer */
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 50px 20px 40px;
+  }
+}
+
+/* ===== Petits mobiles ≤ 600px ===== */
+@media (max-width: 600px) {
+
+  .hero h1 { font-size: 38px; }
+  .hero h1.tech { font-size: 30px; }
+  .hero .tagline { font-size: 15px; }
+
+  .partners-title,
+  .projects-title { font-size: 2rem; letter-spacing: 1px; }
+
+  .projects-grid { grid-template-columns: 1fr; }
+  .projects-section { padding: 60px 20px; }
+}
